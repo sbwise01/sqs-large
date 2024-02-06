@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-east-2"
+  region = "us-east-2"
 }
 
 locals {
@@ -19,5 +19,5 @@ locals {
 
 resource "aws_sqs_queue" "terraform_queue" {
   for_each = toset(local.seller_ids)
-  name                      = "sp-api-seller-${each.key}"
+  name     = "sp-api-seller-${each.key}"
 }
